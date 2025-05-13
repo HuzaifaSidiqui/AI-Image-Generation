@@ -2,6 +2,7 @@ import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
+import PostRouter from './routes/Posts.js';
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,8 @@ app.use((err, req, res, next)=>{
         message
     })
 })
+
+app.use('/api/posts', PostRouter)
 
 app.get('/', (req,res)=>{
     res.status(200).json({
@@ -39,3 +42,16 @@ const StartServer = async ()=>{
 }
 
 StartServer();
+
+const ConnectDB = ()=>{
+    mongoose.set('strictQuery', true);
+    mongoose.connect(process.env.MONGODB_URL)
+    .then(()=>{
+        console.log('Connected to MongoDB');
+    })
+    .catch((error)=>{
+        console.error('Error connecting to MongoDB', error);        
+    })
+}
+
+ConnectDB();

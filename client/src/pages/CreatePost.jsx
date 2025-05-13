@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import GenerateImageForm from "../components/createpost/GenerateImageForm";
 import GeneratedImageCard from "../components/createpost/GeneratedImageCard";
+import { useState } from "react";
 
 const Container = styled.div`
   height: 100%;
-  overflow-y: scroll;
+  overflow-Y: scroll;
   padding: 30px 30px;
   padding-bottom: 50px;
   background: ${({ theme }) => theme.bg};
@@ -23,7 +24,7 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   height: fit-content;
-  ${"" /* flex: 1; */}
+  ${'' /* flex: 1; */}
   gap: 8%;
   display: flex;
   justify-content: center;

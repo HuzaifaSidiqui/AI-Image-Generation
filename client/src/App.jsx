@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   height: 100%;
-  position: relative:
+  ${'' /* position: relative: */}
   display: flex;
   flex-direction: column;
   justify-content: center;
